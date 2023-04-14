@@ -20,5 +20,5 @@ jobs:
         export timestamp=$(date +%Y%m%d%H%M%S)
         echo "::set-output name=timestamp::$timestamp"
         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "sailokeshbasava" --password-stdin
-        docker image build -t sailokeshbasava/new:latest:$timestamp .
-        docker push sailokeshbasava/new:latest:$timestamp
+        docker image build -t sailokeshbasava/new:$timestamp .
+        docker push sailokeshbasava/new:$timestamp
