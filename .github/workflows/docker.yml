@@ -1,4 +1,4 @@
-name: Python application
+name: docker hub
 
 on:
   push:
@@ -15,6 +15,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build & Push Image
       run: |
-        echo "${{ secrets.DOCKERPASSWORD }}" | docker login -u "sailokeshbasava" --password-stdin
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "sailokeshbasava" --password-stdin
         docker image build -t sailokeshbasava/new:latest .
         docker push sailokeshbasava/new:latest
