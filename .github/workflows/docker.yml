@@ -10,11 +10,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      TIMESTAMP: ${{ steps.timestamp.outputs.timestamp }}
 
     steps:
     - uses: actions/checkout@v1
     - name: Build & Push Image
       run: |
+        export timestamp=$(date +%Y%m%d%H%M%S)
         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "sailokeshbasava" --password-stdin
-        docker image build -t sailokeshbasava/new:latest .
-        docker push sailokeshbasava/new:latest
+        docker image build -t sailokeshbasava/new:latest:$timestamp .
+        docker push sailokeshbasava/new:latest:$timestamp
