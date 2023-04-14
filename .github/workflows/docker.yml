@@ -14,12 +14,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: ${{ github.repository }}/webnext
+          repository: ${{ github.repository }}/infolob
           tags: latest, ${{ github.run_number }}
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: msusdev/webnext
+          repository: sailokeshbasava/infolob
           tags: latest, ${{ github.run_number }}
