@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      TIMESTAMP: ${{ steps.timestamp.outputs.timestamp }}
+      timestamp: ${{ steps.timestamp.outputs.timestamp }}
 
     steps:
     - uses: actions/checkout@v1
