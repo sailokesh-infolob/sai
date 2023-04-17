@@ -1,0 +1,19 @@
+name: linter acess
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Super-Linter
+      uses: github/super-linter@v5.0.0
+    
