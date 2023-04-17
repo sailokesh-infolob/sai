@@ -1,5 +1,5 @@
 class Sai {
-    Sai(){
+    private Sai(int a) {
         super();
     }
     public static void main(final String[] args) {
