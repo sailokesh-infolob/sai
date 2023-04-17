@@ -1,4 +1,4 @@
-name: Linter file
+name: Linter file foe supewr
 on:
   push:
     branches:
