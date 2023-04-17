@@ -3,8 +3,10 @@
 import java.util.Vector;
 package com.baeldung.finalkeyword;
 
-public class ImportDemo {
-  public ImportDemo() {
+public class ImportDemo 
+{
+  public ImportDemo() 
+  {
     // java.util.Vector is imported, hence we are
     // able to access directly in our code.
     Vector newVector = new Vector();
@@ -13,7 +15,8 @@ public class ImportDemo {
     // package.
     java.util.ArrayList newList = new java.util.ArrayList();
   }
-  public static void main(String arg[]) {
+  public static void main(String arg[]) 
+  {
     new ImportDemo();
   }
 }
