@@ -1,4 +1,4 @@
-name: Linter of the file
+name: Linter
 
 on:
   push:
