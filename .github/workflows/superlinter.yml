@@ -1,4 +1,4 @@
-name: Linter file this is new
+name: Linter file
 on:
   push:
     branches:
