@@ -1,6 +1,7 @@
 // Java program to demonstrate accessing of members when
 // corresponding classes are imported and not imported.
 import java.util.Vector;
+package com.baeldung.finalkeyword;
 
 public class ImportDemo {
   public ImportDemo() {
