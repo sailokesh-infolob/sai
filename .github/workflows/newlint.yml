@@ -1,5 +1,3 @@
-# Runs on pull requests against master, and on master branch
-
 name: Haskell Lint
 
 on:
