@@ -1,33 +1,23 @@
-name: Linter and push
+name: Haskell Lint
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "main" ]
-
+    branches: [ master ]
 jobs:
-
-  build:
-
+  hlint:
     runs-on: ubuntu-latest
     env:
-      TIMESTAMP: $ {{ date +%Y%m%d%H%M%S }}
-
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      HLINT_ACTION_LOG_LEVEL: debug
     steps:
-    - uses: actions/checkout@v3
-    - name: Super-Linter
-      uses: github/super-linter@v5.0.0
-      env:
-        VALIDATE_ALL_CODEBASE: true
-        DEFAULT_BRANCH: master
-        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-        
-    - uses: actions/checkout@v1
-    - name: Build & Push Image
-      run: |
-        export timestamp=$(date +%Y%m%d%H%M%S)
-        echo "::set-output name=timestamp::$timestamp"
-        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "sailokeshbasava" --password-stdin
-        docker image build -t sailokeshbasava/new:$timestamp .
-        docker push sailokeshbasava/new:$timestamp
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Set up HLint
+        uses: rwe/actions-hlint-setup@v1
+
+      - name: Haskell Lint
+        uses: rwe/actions-hlint-run@v2
