@@ -25,7 +25,7 @@ jobs:
         
     - uses: actions/checkout@v1
     - name: Build & Push Image
-      run: |
+      run: 
         export timestamp=$(date +%Y%m%d%H%M%S)
         echo "::set-output name=timestamp::$timestamp"
         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "sailokeshbasava" --password-stdin
