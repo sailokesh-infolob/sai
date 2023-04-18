@@ -1,4 +1,4 @@
-name: Haskell Lint
+name: new
 
 on:
   push:
