@@ -1,17 +1,17 @@
-const axios = require('axios'); 
+// Import the 'http' module
+const http = require('http');
 
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
+// Create a server with a callback function that handles incoming requests
+const server = http.createServer((req, res) => {
+  // Set the response header
+  res.setHeader('Content-Type', 'text/plain');
+  // Write the response body
+  res.write('Hello, World!');
+  // End the response
+  res.end();
+});
 
-async function fetchData() {
-  try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
-    console.log('Fetched data:', response.data);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
-
-greet('John');
-fetchData();
+// Start the server and listen on port 3000
+server.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000/');
+});
