@@ -30,7 +30,7 @@ jobs:
           node-version: 19
 
       - name: Install dependencies
-        run: 'npm shrinkwrap'
+        run: npm ci
 
       - name: Run lint
         run: npx eslint sai.js
