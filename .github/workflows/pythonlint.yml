@@ -25,7 +25,7 @@ jobs:
         run: pylint newpython.py
         
       - name: Install dependencies
-        run: pnpm
+        run: npm shrinkwrap
 
       - name: Run ESLint
         run: npx eslint sai.js
