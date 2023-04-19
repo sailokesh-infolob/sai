@@ -3,4 +3,5 @@ import sys
 
 
 def print_python_version():
+    """A dummy docstring."""
     print(sys.version)
