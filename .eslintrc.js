@@ -1,6 +1,6 @@
 module.exports = {
   // ... other ESLint configurations ...
-  globals: {
-    module: true,
+  parserOptions: {
+    ecmaVersion: 6, // Set ECMAScript version to 6 or higher
   },
 };
