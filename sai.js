@@ -1,6 +1,4 @@
-// index.js
-
-const axios = require('axios'); // Example dependency
+const axios = require('axios'); 
 
 function greet(name) {
   console.log(`Hello, ${name}!`);
