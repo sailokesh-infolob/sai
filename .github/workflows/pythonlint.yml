@@ -28,6 +28,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 19
+          
+      - name: Set up eslint
+        uses: actions/setup-eslint@v2
+        with:
+          eslint-version: 8.38.0
 
       - name: Install dependencies
         run: npm shrinkwrap
