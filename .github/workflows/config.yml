@@ -1,18 +1,17 @@
-name: My Workflow
+name: CodeQL
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm ic
-      - name: Run lint
-        run: npx eslint .
+      - name: Install CodeQL
+        uses: github/codeql-action/setup@v2
+        with:
+          languages: javascript
+      - name: Run CodeQL analysis
+        uses: github/codeql-action/analyze@v2
