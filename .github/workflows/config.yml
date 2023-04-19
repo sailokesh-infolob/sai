@@ -13,6 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: npm ci
+        run: npm ic
       - name: Run lint
         run: npx eslint .
