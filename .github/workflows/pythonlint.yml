@@ -1,0 +1,23 @@
+name: Lint Code
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          Python: pip install pylint
+
+      - name: Run linter
+        run: |
+          Python: pylint my_directory/my_file.py
+
