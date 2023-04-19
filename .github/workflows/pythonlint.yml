@@ -1,4 +1,4 @@
-name: Python Lint and JavaScript Linterf
+name: Python Lint and JavaScript Lint
 
 on:
   push:
