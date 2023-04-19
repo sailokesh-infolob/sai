@@ -33,4 +33,4 @@ jobs:
         run: npm ci
 
       - name: Run lint
-        run: npx eslint sai.js
+        run: npx eslint .
