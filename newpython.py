@@ -1,2 +1,3 @@
-print("hello world")
-print("sai lokesh")
+import sys
+def print_python_version():
+    print(sys.version)
