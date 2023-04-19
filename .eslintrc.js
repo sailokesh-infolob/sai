@@ -1,6 +1,6 @@
 module.exports = {
-  extends: "eslint:recommended",
-  rules: {
-    // Specify custom rules here
+  // ... other ESLint configurations ...
+  globals: {
+    module: true,
   },
 };
