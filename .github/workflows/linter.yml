@@ -17,7 +17,8 @@ jobs:
     - name: Super-Linter
       uses: github/super-linter@v5.0.0
     - name: Use the secret
-      run: echo ${{ secrets.GIT_TOKEN }}
+      run: |
+        export ACCESS_TOKEN=${{ secrets.MY_ACCESS_TOKEN }}
 
     - name: Lint Dockerfile
       uses: hadolint/hadolint-action@master
