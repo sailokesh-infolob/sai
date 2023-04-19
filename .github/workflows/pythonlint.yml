@@ -1,4 +1,4 @@
-name: Python Lint of new
+name: Python Lint and JavaScript
 
 on:
   push:
@@ -28,4 +28,4 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: npx eslint newjavascript.js
+        run: npx eslint sai.js
