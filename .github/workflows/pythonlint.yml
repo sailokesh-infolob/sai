@@ -17,4 +17,4 @@ jobs:
       - name: Install dependencies
         run: pip install pylint
       - name: Run pylint
-        run: pylint newpython.py
+        run: pylint .
