@@ -40,7 +40,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Installing Node Dependencies
-        run: |
-          npm install
-          cd unit_testing
-          npm install
+        run: npm install
+        env:
+          CI: true
