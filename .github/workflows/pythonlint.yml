@@ -27,14 +27,20 @@ jobs:
       - name: Run lint
         run: flake8
         
-      - name: Install Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v1
+      - name: Use Node.js "13.x"
+        uses: actions/setup-node@v1
         with:
-          node-version: 14
-          files: src/
-
-      - name: Install dependencies
-        run: npm 
-
-      - name: Run lint
-        run: npx eslint
+          node-version: "13.x"
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Installing Node Dependencies
+        run: |
+          npm install
+          cd unit_testing
+          npm install
