@@ -1,0 +1,21 @@
+name: Update package.json
+
+on:
+  push:
+    branches:
+      - main # specify the branch you want to trigger the workflow on
+
+jobs:
+  update-package-json:
+    runs-on: ubuntu-latest # specify the operating system for the workflow
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 # checkout the code repository
+
+      - name: Create package.json
+        run: echo '{}' > package.json # create an empty package.json file
+
+      # You can add more steps here to modify the package.json file as needed.
+      # For example, you can use the 'run' or 'shell' commands to run npm scripts,
+      # install dependencies, update fields in package.json, etc.
