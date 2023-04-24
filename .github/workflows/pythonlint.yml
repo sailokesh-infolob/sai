@@ -26,14 +26,13 @@ jobs:
 
       - name: Run lint
         run: flake8
-        
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          files: src/
-      
-      - name: Install modules
-        run: yarn
-        
-      - name: Run ESLint
-        run: eslint sai.js --ext .js,.jsx,.ts,.tsx
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npx eslint .
