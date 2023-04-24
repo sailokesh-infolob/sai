@@ -1,21 +1,43 @@
-name: Update package.json
+name: ci
 
 on:
   push:
     branches:
-      - main # specify the branch you want to trigger the workflow on
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
 
 jobs:
-  update-package-json:
-    runs-on: ubuntu-latest # specify the operating system for the workflow
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2 # checkout the code repository
+      - name: Checkout
+        uses: actions/checkout@master
 
-      - name: Create package.json
-        run: echo '{}' > package.json # create an empty package.json file
+      - name: Setup node env
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: ${{ matrix.node }}
 
-      # You can add more steps here to modify the package.json file as needed.
-      # For example, you can use the 'run' or 'shell' commands to run npm scripts,
-      # install dependencies, update fields in package.json, etc.
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run code style check
+        run: npm run style:all
