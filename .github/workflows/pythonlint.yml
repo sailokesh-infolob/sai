@@ -34,7 +34,7 @@ jobs:
           files: src/
 
       - name: Install dependencies
-        run: npm yarn
+        run: npm 
 
       - name: Run lint
         run: npx eslint
