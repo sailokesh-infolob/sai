@@ -1,5 +1,5 @@
 ---
-name: Python Lint
+name: Python Lint for the git hub
 on:
   push:
     branches:
