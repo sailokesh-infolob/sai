@@ -1,5 +1,5 @@
 ---
-name: Python Lint and JavaScript Lint
+name: Python Lint
 on:
   push:
     branches:
